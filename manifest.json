@@ -1,0 +1,17 @@
+{
+	"name": "Dom Text Matcher",
+	"description": "DOM 텍스트 검사기",
+	"version": "1.0",
+	"manifest_version": 3,
+	"content_scripts": [
+		{
+			"matches": ["https://*.whatap.io/*", "http://*.whatap.io/*"],
+			"js": ["index.js"]
+		}
+	],
+	"action": {
+		"default_popup": "index.html",
+		"default_title": "Dom Text Matcher"
+	},
+	"permissions": ["storage"]
+}
