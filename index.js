@@ -28,11 +28,11 @@ const checkRegex = async (targetNode) => {
 	const findRegex = new RegExp(matchText);
 
 	const getMatchedDoms = (node, matchedDoms = []) => {
-		const matched = node.innerText?.match(findRegex);
+		const matched = node.textContent?.match(findRegex);
 		if (!matched) return matchedDoms;
 
-		if (matched && node.nodeName === "SPAN") {
-			matchedDoms.push(node);
+		if (matched && node.nodeName === "#text") { 
+			matchedDoms.push(node.parentNode);
 		}
 		node.childNodes?.forEach(
 			(n) => (matchedDoms = getMatchedDoms(n, matchedDoms))
